@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hibernate/hibernate.iml" filepath="$PROJECT_DIR$/hibernate/hibernate.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/python/python.iml" filepath="$PROJECT_DIR$/python/python.iml" />
     </modules>
   </component>
 </project>
