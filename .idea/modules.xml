@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hibernate/hibernate.iml" filepath="$PROJECT_DIR$/hibernate/hibernate.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netty/netty.iml" filepath="$PROJECT_DIR$/netty/netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/python/python.iml" filepath="$PROJECT_DIR$/python/python.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring.iml" filepath="$PROJECT_DIR$/spring/spring.iml" />
     </modules>
