@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/hibernate/pom.xml" />
         <option value="$PROJECT_DIR$/spring/pom.xml" />
         <option value="$PROJECT_DIR$/netty/pom.xml" />
+        <option value="$PROJECT_DIR$/jar/pom.xml" />
+        <option value="$PROJECT_DIR$/../agent/pom.xml" />
+        <option value="$PROJECT_DIR$/javafx/pom.xml" />
       </list>
     </option>
   </component>
