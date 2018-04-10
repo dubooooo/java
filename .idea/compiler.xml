@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="agent" />
         <module name="hibernate" />
+        <module name="html" />
         <module name="jar" />
         <module name="javafx" />
         <module name="netty" />
@@ -18,6 +19,7 @@
     <bytecodeTargetLevel>
       <module name="agent" target="1.7" />
       <module name="hibernate" target="1.8" />
+      <module name="html" target="1.8" />
       <module name="jar" target="1.8" />
       <module name="javafx" target="1.8" />
       <module name="netty" target="1.8" />

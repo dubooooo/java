@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/jar/pom.xml" />
         <option value="$PROJECT_DIR$/javafx/pom.xml" />
         <option value="$PROJECT_DIR$/agent/pom.xml" />
+        <option value="$PROJECT_DIR$/html/pom.xml" />
       </list>
     </option>
   </component>
