@@ -15,8 +15,14 @@ public class GroupRunnable implements Runnable {
 
     @Override
     public void run() {
-        group.setOnKeyPressed(event -> {
-            System.out.println(event);
-        });
+        try {
+            group.setOnKeyPressed(event -> {
+                System.out.println(event);
+            });
+            Thread.sleep(3000);
+            group.getChildren().remove(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

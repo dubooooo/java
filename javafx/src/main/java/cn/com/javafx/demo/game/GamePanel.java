@@ -15,15 +15,15 @@ public class GamePanel extends Parent {
     public GamePanel() {
     }
 
-    public void load() {
+    public void init() {
         this.sprite = new Sprite(50, 50, 32, 32, "img/actor.png");
         getChildren().add(this.sprite);
         getScene().setOnKeyPressed(event -> onKeyPressed(event));
-        getScene().setOnMouseEntered(event -> onMouseEntered(event));
+        getScene().setOnMouseMoved(event -> onMouseMoved(event));
     }
 
-    public void onMouseEntered(MouseEvent event) {
-
+    public void onMouseMoved(MouseEvent event) {
+        System.out.println(event);
     }
 
     public void onKeyPressed(KeyEvent event) {

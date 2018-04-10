@@ -21,7 +21,7 @@ public class PuzzleApplication extends Application {
 
     @PostConstruct
     public void app() {
-        launch(null);
+        Application.launch(null);
     }
 
     @Override

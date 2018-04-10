@@ -13,13 +13,12 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         GamePanel mPanel = new GamePanel();
-        final Scene scene = new Scene(mPanel);
-        mPanel.load();
+        final Scene scene = new Scene(mPanel, 800, 600);
+        mPanel.init();
         scene.setFill(Color.BLACK);
         stage.setScene(scene);
         stage.setTitle("Game");
         stage.setResizable(false);
-        stage.setFullScreen(true);
         stage.show();
     }
 
