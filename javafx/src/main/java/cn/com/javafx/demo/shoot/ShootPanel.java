@@ -2,9 +2,9 @@ package cn.com.javafx.demo.shoot;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 /**
@@ -12,64 +12,73 @@ import javafx.util.Duration;
  */
 public class ShootPanel extends Parent {
 
-    private BackGround[] backGrounds;
+    private Group backGrounds;
     private Hero hero;
+    private Group bullets;
+    private Group airPlans;
 
     public void start() {
         showBackGround();
-        //showHero();
-        showHero01();
+        showHero();
+        showBullets();
+        showAirPlans();
     }
 
-    private void showHero01() {
-        hero = new Hero(GameConstant.hero_url);
-        getChildren().addAll(hero);
-        System.out.println("shootPanel:" + getChildren());
-        getScene().setOnMouseMoved(e -> {
-            hero.setX(e.getX()).setY(e.getY());
+    private void showAirPlans() {
+        airPlans = new Group();
+        getChildren().addAll(airPlans);
+    }
+
+    private void showBullets() {
+        bullets = new Group();
+        getChildren().addAll(bullets);
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(30), e -> {
+            System.out.println("bullets-size:" + bullets.getChildren().size());
+            //for (Node node : bullets.getChildren()) {
+            //    Bullet bullet = (Bullet) node;
+            //    bullet.moveY(-1);
+            //}
+            Bullet bullet = new Bullet(GameConstant.bullet_url);
+            bullet.move(hero.getX(), hero.getY());
+            Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(1), event -> {
+                bullet.moveY(-1);
+                for (Node node : airPlans.getChildren()) {
+
+                }
+            }));
+            timeline1.setCycleCount(Timeline.INDEFINITE);
+            timeline1.play();
+            bullets.getChildren().addAll(bullet);
         });
+        timeline.getKeyFrames().addAll(keyFrame);
+        timeline.play();
     }
 
     private void showHero() {
-        ImageView imageView = new ImageView(GameConstant.hero_url[0]);
-        double img_weigth = imageView.getImage().getWidth();
-        double img_heigth = imageView.getImage().getHeight();
-        imageView.setLayoutY(GameConstant.windows_height - GameConstant.windows_height / 5);
-        imageView.setLayoutX(GameConstant.windows_weight / 2 - img_weigth / 2);
+        hero = new Hero(GameConstant.hero_url);
+        getChildren().addAll(hero);
         getScene().setOnMouseMoved(e -> {
-            System.out.println(e);
-            double x = e.getX();
-            double y = e.getY();
-            imageView.setLayoutX(x - img_weigth / 2);
-            imageView.setLayoutY(y - img_heigth / 2);
+            hero.setX(e.getX() - hero.getImgWeigth() / 2).setY(e.getY() - hero.getImgHeight() / 2);
         });
-        final int[] index = {0};
-        Timeline timeline = new Timeline(Timeline.INDEFINITE, new KeyFrame(Duration.millis(300), e -> {
-            System.out.println("change");
-            imageView.setImage(new Image(GameConstant.hero_url[index[0]++]));
-            if (index[0] > GameConstant.hero_url.length) {
-                index[0] = 0;
-            }
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-        getChildren().add(imageView);
     }
 
     private void showBackGround() {
-        backGrounds = new BackGround[2];
-        backGrounds[0] = new BackGround(GameConstant.back_ground_url);
-        backGrounds[1] = new BackGround(GameConstant.back_ground_url);
-        getChildren().addAll(backGrounds[0], backGrounds[1]);
+        backGrounds = new Group();
+        BackGround backGround0 = new BackGround(GameConstant.back_ground_url);
+        BackGround backGround1 = new BackGround(GameConstant.back_ground_url);
+        backGrounds.getChildren().addAll(backGround0, backGround1);
+        getChildren().addAll(backGrounds);
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         KeyFrame keyFrame = new KeyFrame(Duration.ONE, e -> {
-            if (backGrounds[0].getY() >= 0) {
-                backGrounds[0].setY(-GameConstant.windows_height);
-                backGrounds[1].setY(0);
+            if (backGround0.getY() >= 0) {
+                backGround0.setY(-GameConstant.windows_height);
+                backGround1.setY(0);
             } else {
-                backGrounds[0].moveY(0.01);
-                backGrounds[1].moveY(0.01);
+                backGround0.moveY(0.01);
+                backGround1.moveY(0.01);
             }
         });
         timeline.getKeyFrames().add(keyFrame);

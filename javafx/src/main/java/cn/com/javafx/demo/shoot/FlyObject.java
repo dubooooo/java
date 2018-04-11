@@ -1,7 +1,9 @@
 package cn.com.javafx.demo.shoot;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
@@ -12,14 +14,16 @@ import javafx.scene.image.ImageView;
  */
 public abstract class FlyObject extends Parent {
 
-    private int img_x;
-    private int img_y;
-    private int weigth;
-    private int height;
+    private int imgX;
+    private int imgY;
+    private int imgWeigth;
+    private int imgHeight;
     private ImageView imageView;
 
-    DoubleProperty x = new SimpleDoubleProperty();
-    DoubleProperty y = new SimpleDoubleProperty();
+    private DoubleProperty x = new SimpleDoubleProperty();
+    private DoubleProperty y = new SimpleDoubleProperty();
+    private ObjectProperty<Image> imgProperty = new SimpleObjectProperty();
+    private ObjectProperty<Rectangle2D> rectangle2DProperty = new SimpleObjectProperty();
 
     public FlyObject(String imageUrl) {
         this(new Image(imageUrl));
@@ -29,14 +33,16 @@ public abstract class FlyObject extends Parent {
         this(0, 0, (int) image.getWidth(), (int) image.getHeight(), image);
     }
 
-    public FlyObject(int img_x, int img_y, int weigth, int height, Image image) {
+    private FlyObject(int imgX, int imgY, int imgWeigth, int imgHeight, Image image) {
         try {
-            this.img_x = img_x;
-            this.img_y = img_y;
-            this.weigth = weigth;
-            this.height = height;
+            this.imgX = imgX;
+            this.imgY = imgY;
+            this.imgWeigth = imgWeigth;
+            this.imgHeight = imgHeight;
+            this.imgProperty.set(image);
             this.imageView = new ImageView(image);
-            this.imageView.setViewport(new Rectangle2D(img_x, img_y, weigth, height));
+            imageView.imageProperty().bindBidirectional(imgProperty);
+            imageView.viewportProperty().bindBidirectional(rectangle2DProperty);
             this.layoutXProperty().bindBidirectional(this.x);
             this.layoutYProperty().bindBidirectional(this.y);
             getChildren().add(this.imageView);
@@ -77,5 +83,41 @@ public abstract class FlyObject extends Parent {
     public FlyObject setY(double y) {
         this.y.set(y);
         return this;
+    }
+
+    public int getImgWeigth() {
+        return imgWeigth;
+    }
+
+    public void setImgWeigth(int imgWeigth) {
+        this.imgWeigth = imgWeigth;
+    }
+
+    public int getImgHeight() {
+        return imgHeight;
+    }
+
+    public void setImgHeight(int imgHeight) {
+        this.imgHeight = imgHeight;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
+    public void setImage(Image image) {
+        this.imgProperty.set(image);
+    }
+
+    public Rectangle2D getRectangle2D() {
+        return rectangle2DProperty.get();
+    }
+
+    public void setRectangle2D(int imgX, int imgY, int imgWeigth, int imgHeight) {
+        this.rectangle2DProperty.set(new Rectangle2D(imgX, imgY, imgWeigth, imgHeight));
     }
 }
