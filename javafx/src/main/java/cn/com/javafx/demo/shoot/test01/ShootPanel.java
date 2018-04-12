@@ -1,4 +1,4 @@
-package cn.com.javafx.demo.shoot;
+package cn.com.javafx.demo.shoot.test01;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -77,8 +77,8 @@ public class ShootPanel extends Parent {
                 backGround0.setY(-GameConstant.windows_height);
                 backGround1.setY(0);
             } else {
-                backGround0.moveY(0.01);
-                backGround1.moveY(0.01);
+                backGround0.moveY(0.1);
+                backGround1.moveY(0.1);
             }
         });
         timeline.getKeyFrames().add(keyFrame);

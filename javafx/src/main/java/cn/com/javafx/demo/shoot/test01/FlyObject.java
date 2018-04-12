@@ -1,4 +1,4 @@
-package cn.com.javafx.demo.shoot;
+package cn.com.javafx.demo.shoot.test01;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
