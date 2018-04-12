@@ -19,6 +19,7 @@ public class Game extends Application {
         GraphicsApplication application = new GraphicsApplication(Constant.WIDTH, Constant.HEIGHT);
         primaryStage.setScene(new Scene(new Pane(application), Constant.WIDTH, Constant.HEIGHT, Color.BLACK));
         primaryStage.show();
+        application.init();
         application.start();
         application.addSprite(new BackGround(), new Hero());
     }

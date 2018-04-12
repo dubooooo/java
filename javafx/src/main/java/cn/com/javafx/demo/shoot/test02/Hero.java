@@ -1,6 +1,5 @@
 package cn.com.javafx.demo.shoot.test02;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 /**
@@ -8,41 +7,67 @@ import javafx.scene.image.Image;
  */
 public class Hero extends SpriteImpl {
 
-    Image[] images = new Image[2];
+    Image[] images = new Image[6];
+    Image image;
+    int index = 0;
     double x;
     double y;
 
     public Hero() {
-        images[0] = new Image("demo/shoot/hero0.png");
-        images[1] = new Image("demo/shoot/hero1.png");
+        for (int i = 0; i < images.length; i++) {
+            images[i] = loadImage("demo/shoot/hero" + i + ".png");
+        }
+        image = (images[0]);
     }
 
+    @Override
     public void init() {
         getApplication().addMouseMovedEvent(event -> {
-            x = event.getX();
-            y = event.getY();
+            x = event.getX() - getWidth() / 2;
+            y = event.getY() - getHeight() / 2;
+            if (y > event.getY() / 2) {
+                getApplication().pause();
+            }
+            if (y < event.getY() / 2) {
+                getApplication().restart();
+            }
+        });
+        timeline(200, e -> {
+            int i = index++ % 6;
+            //image = images[index++ % 2];
+            image = (images[i]);
+            //image.set(images[i]);
         });
     }
 
     @Override
-    public void before() {
-
-    }
-
-    @Override
-    public void draw(GraphicsContext gc) {
-        gc.drawImage(getImage(), x, y);
-    }
-
-    int index = 0;
-
-    private Image getImage() {
-        return images[index++ % 2];
+    public Image getImage() {
+        return image;
     }
 
     @Override
     public void after() {
 
+    }
+
+    @Override
+    public double getX() {
+        return x;
+    }
+
+    @Override
+    public double getY() {
+        return y;
+    }
+
+    @Override
+    public double getWidth() {
+        return image.getWidth();
+    }
+
+    @Override
+    public double getHeight() {
+        return image.getHeight();
     }
 
 }

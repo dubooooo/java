@@ -10,6 +10,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,26 +22,40 @@ import java.util.List;
  */
 public class GraphicsApplication extends Canvas {
 
-    protected enum GameState {GAME_MENU, GAME_START, GAME_CONTINUE, GAME_HELP, GAME_SET, GAME_EXIT, GAME_PAUSE;}
+    final static private Logger log = LoggerFactory.getLogger(GraphicsApplication.class);
 
-    private List<Sprite> Sprites = new ArrayList();
+    private List<Sprite> sprites = new ArrayList();
 
     private Timeline timeline;
     private int duration = Constant.DURATION;
-    private KeyFrame keyFrame;
-    private GameState gameState = GameState.GAME_MENU;
+    private Constant.GameState gameState = Constant.GameState.GAME_MENU;
     private GraphicsContext gc;
-    private List<EventHandler> mouseMovedEvent = new ArrayList();
+    private List<EventHandler> mouseMovedEvents = new ArrayList();
 
     public GraphicsApplication(double width, double height) {
         super(width, height);
     }
 
-    public void start() {
+    public void init() {
         initGraphicsContext();
         initEvents();
-        initKeyFrame();
         initTimeline();
+    }
+
+    public void start() {
+        getTimeline().play();
+    }
+
+    public void pause() {
+        getTimeline().pause();
+    }
+
+    public void restart() {
+        getTimeline().playFromStart();
+    }
+
+    public void stop() {
+        getTimeline().stop();
     }
 
     public void initGraphicsContext() {
@@ -56,7 +72,7 @@ public class GraphicsApplication extends Canvas {
     }
 
     public EventHandler<? super MouseEvent> mouseMovedEvent() {
-        return new EventHandlerImpl(mouseMovedEvent);
+        return new EventHandlerImpl(getMouseMovedEvents());
     }
 
     public <T extends Event> void addEventHandlers(EventType<T> eventType, EventHandler<? super T> eventHandler) {
@@ -64,21 +80,15 @@ public class GraphicsApplication extends Canvas {
     }
 
     public void addMouseMovedEvent(EventHandler<MouseEvent>... eventHandler) {
-        mouseMovedEvent.addAll(Arrays.asList(eventHandler));
+        getMouseMovedEvents().addAll(Arrays.asList(eventHandler));
     }
 
     public void removeMouseMovedEvent(EventHandler<MouseEvent>... eventHandler) {
-        mouseMovedEvent.removeAll(Arrays.asList(eventHandler));
-    }
-
-    public void initKeyFrame() {
-        keyFrame = new KeyFrame(Duration.millis(duration), e -> {
-            timelineEvent(gc);
-        });
+        getMouseMovedEvents().removeAll(Arrays.asList(eventHandler));
     }
 
     public void timelineEvent(GraphicsContext gc) {
-        for (Sprite sprite : Sprites) {
+        for (Sprite sprite : getSprites()) {
             sprite.before();
             sprite.draw(gc);
             sprite.after();
@@ -88,12 +98,11 @@ public class GraphicsApplication extends Canvas {
     public void initTimeline() {
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.getKeyFrames().addAll(keyFrame);
-        timeline.play();
+        timeline.getKeyFrames().addAll(getKeyFrame());
     }
 
     public Sprite getSprite(int index) {
-        return Sprites.get(index);
+        return sprites.get(index);
     }
 
     public void addSprite(Sprite... sprite) {
@@ -102,36 +111,34 @@ public class GraphicsApplication extends Canvas {
             for (Sprite spritetemp : list) {
                 spritetemp.init(this);
             }
-            this.Sprites.addAll(list);
+            this.sprites.addAll(list);
         }
     }
 
     public void removeSprite(Sprite... sprite) {
-        this.Sprites.removeAll(Arrays.asList(sprite));
+        this.sprites.removeAll(Arrays.asList(sprite));
     }
 
     public Timeline getTimeline() {
         return timeline;
     }
 
-    public void setTimeline(Timeline timeline) {
-        this.timeline = timeline;
-    }
-
     public KeyFrame getKeyFrame() {
-        return keyFrame;
+        return new KeyFrame(Duration.millis(duration), e -> {
+            timelineEvent(gc);
+        });
     }
 
-    public void setKeyFrame(KeyFrame keyFrame) {
-        this.keyFrame = keyFrame;
-    }
-
-    public GameState getGameState() {
+    public Constant.GameState getGameState() {
         return gameState;
     }
 
-    public void setGameState(GameState gameState) {
-        this.gameState = gameState;
+    public List<Sprite> getSprites() {
+        return sprites;
+    }
+
+    public List<EventHandler> getMouseMovedEvents() {
+        return mouseMovedEvents;
     }
 }
 
@@ -139,6 +146,8 @@ public class GraphicsApplication extends Canvas {
  * 鼠标移动事件
  */
 class EventHandlerImpl implements EventHandler {
+
+    final static private Logger log = LoggerFactory.getLogger(EventHandlerImpl.class);
 
     private List<EventHandler> eventHandlers;
 
