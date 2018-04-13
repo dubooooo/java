@@ -20,7 +20,7 @@ public class Game extends Application {
         primaryStage.setScene(new Scene(new Pane(application), Constant.WIDTH, Constant.HEIGHT, Color.BLACK));
         primaryStage.show();
         application.init();
-        application.start();
+        application.getTimeline().play();
         application.addSprite(new BackGround(), new Hero());
     }
 }
