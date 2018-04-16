@@ -6,7 +6,7 @@ package cn.com.java.agent;
 class FileIOTest {
 
     public static void main(String[] args) {
-        FileIO fileIO = new FileIO("F:/test.txt");
+        FileIO fileIO = new FileIO("F:/fxml.txt");
         fileIO.append("123");
         fileIO.append("456");
     }

@@ -47,7 +47,7 @@ public final class Config {
 
     public static final int INFO_TEXT_SPACE = 10;
 
-    // Game field info
+    // Main field info
     public static final int BRICK_WIDTH = 48;
     public static final int BRICK_HEIGHT = 24;
     public static final int SHADOW_WIDTH = 10;

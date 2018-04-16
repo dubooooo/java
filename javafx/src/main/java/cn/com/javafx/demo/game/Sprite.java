@@ -1,150 +1,74 @@
 package cn.com.javafx.demo.game;
 
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import org.springframework.core.io.ClassPathResource;
+
+import java.util.stream.Stream;
 
 /**
- * @author dubooooo@126.com 2018-03-30
+ * @author dubooooo@126.com 2018-04-13
  */
-public class Sprite extends Parent {
+public abstract class Sprite {
 
-    private enum Direction {
-        Left, Right, Up, Down
+    public DoubleProperty sx, sy, sw, sh, dx, dy, dw, dh;
+    public ObjectProperty<Image> img;
+    public ObjectProperty<GraphicsContext> gc = new SimpleObjectProperty();
+
+    public Sprite(Image img) {
+        this(img, 0, 0, img.getWidth(), img.getHeight(), 0, 0, img.getWidth(), img.getHeight());
     }
 
-    private Direction direction = Direction.Left;
-    private Direction lastDirection;
-    private int x, y, width, height;
-    private int index = 0;
-    private int indexDiv = 5;
-    private ImageView mImageView;
-    private int speed = 4;
+    public Sprite(Image img, double sx, double sy, double sw, double sh) {
+        this(img, 0, 0, sw, sh, 0, 0, sw, sh);
+    }
 
-    public Sprite(int x, int y, int width, int height, String url) {
-        try {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-            Image actor = new Image(new ClassPathResource(url).getInputStream());
-            this.mImageView = new ImageView(actor);
-            this.mImageView.setViewport(new Rectangle2D(0, 0, width, height));
-            this.mImageView.setLayoutX(x);
-            this.mImageView.setLayoutY(y);
-            this.getChildren().add(this.mImageView);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public Sprite(Image img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh) {
+        this.img = new SimpleObjectProperty(img);
+        this.sx = new SimpleDoubleProperty(sx);
+        this.sy = new SimpleDoubleProperty(sy);
+        this.sw = new SimpleDoubleProperty(sw);
+        this.sh = new SimpleDoubleProperty(sh);
+        this.dx = new SimpleDoubleProperty(dx);
+        this.dy = new SimpleDoubleProperty(dy);
+        this.dw = new SimpleDoubleProperty(dw);
+        this.dh = new SimpleDoubleProperty(dh);
+    }
+
+    public void bind(GraphicsContext gc) {
+        this.gc.addListener(e -> {
+            addlistener(listener -> {
+                draw(this.gc.get());
+            });
+        });
+        this.gc.set(gc);
+    }
+
+    public void addlistener(InvalidationListener listener) {
+        Stream.of(img, sx, sy, sw, sh, dx, dy, dw, dh).forEach(e -> e.addListener(listener));
+    }
+
+    public void draw(GraphicsContext gc) {
+        gc.drawImage(img.get(), sx.get(), sy.get(), sw.get(), sh.get(), dx.get(), dy.get(), dw.get(), dh.get());
+    }
+
+    public abstract void update();
+
+    public void move(double x, double y) {
+        if (x != 0) {
+            dx.set(dx.get() + x);
+        }
+        if (y != 0) {
+            dy.set(dy.get() + y);
         }
     }
 
-    /**
-     * 像下移动
-     */
-    public void moveDown() {
-        this.direction = Direction.Down;
-        if (this.lastDirection != this.direction) {
-            this.index = 0;
-        }
-        this.index++;
-        if (this.index / this.indexDiv > 2) {
-            this.index = 0;
-        }
-        this.mImageView.setViewport(new Rectangle2D(((this.index / this.indexDiv) % 3) * this.width, ((this.index / this.indexDiv) / 3) * this.height, this.width, this.height));
-        this.mImageView.setLayoutY(this.mImageView.getLayoutY() + this.speed);
-
-        this.lastDirection = this.direction;
-    }
-
-    /**
-     * 像左移动
-     */
-    public void moveLeft() {
-        this.direction = Direction.Left;
-        if (this.lastDirection != this.direction) {
-            this.index = 3 * this.indexDiv;
-        }
-        this.index++;
-        if (this.index / this.indexDiv > 5) {
-            this.index = 3 * this.indexDiv;
-        }
-        this.mImageView.setViewport(new Rectangle2D(((this.index / this.indexDiv) % 3) * this.width, ((this.index / this.indexDiv) / 3) * this.height, this.width, this.height));
-        this.mImageView.setLayoutX(this.mImageView.getLayoutX() - this.speed);
-
-        this.lastDirection = this.direction;
-    }
-
-    /**
-     * 像右移动
-     */
-    public void moveRight() {
-        this.direction = Direction.Right;
-        if (this.lastDirection != this.direction) {
-            this.index = 6 * this.indexDiv;
-        }
-        this.index++;
-        if (this.index / this.indexDiv > 8) {
-            this.index = 6 * this.indexDiv;
-        }
-        this.mImageView.setViewport(new Rectangle2D(((this.index / this.indexDiv) % 3) * this.width, ((this.index / this.indexDiv) / 3) * this.height, this.width, this.height));
-        this.mImageView.setLayoutX(this.mImageView.getLayoutX() + this.speed);
-
-        this.lastDirection = this.direction;
-    }
-
-    /**
-     * 像右移动
-     */
-    public void moveUp() {
-        this.direction = Direction.Up;
-        if (this.lastDirection != this.direction) {
-            this.index = 9 * this.indexDiv;
-        }
-        this.index++;
-        if (this.index / this.indexDiv > 11) {
-            this.index = 9 * this.indexDiv;
-        }
-        this.mImageView.setViewport(new Rectangle2D(((this.index / this.indexDiv) % 3) * this.width, ((this.index / this.indexDiv) / 3) * this.height, this.width, this.height));
-        this.mImageView.setLayoutY(this.mImageView.getLayoutY() - this.speed);
-
-        this.lastDirection = this.direction;
-    }
-
-    public void move() {
-
-    }
-
-    public int getX() {
-        return this.x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return this.y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    @Override
+    public String toString() {
+        return "Sprite{" + "img=" + img + ", sx=" + sx + ", sy=" + sy + ", sw=" + sw + ", sh=" + sh + ", dx=" + dx + ", dy=" + dy + ", dw=" + dw + ", dh=" + dh + ", gc=" + gc + '}';
     }
 }

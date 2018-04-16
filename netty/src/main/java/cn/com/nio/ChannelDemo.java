@@ -22,7 +22,7 @@ public class ChannelDemo {
     }
 
     public void test01() throws Exception {
-        RandomAccessFile randomAccessFile = new RandomAccessFile("f:/nio-test", "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile("f:/nio-fxml", "rw");
         Channel channel = randomAccessFile.getChannel();
         System.out.println(((FileChannel) channel).size());
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
