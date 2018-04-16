@@ -69,6 +69,6 @@ public abstract class Sprite {
 
     @Override
     public String toString() {
-        return "Sprite{" + "img=" + img + ", sx=" + sx + ", sy=" + sy + ", sw=" + sw + ", sh=" + sh + ", dx=" + dx + ", dy=" + dy + ", dw=" + dw + ", dh=" + dh + ", gc=" + gc + '}';
+        return "Sprite{" + "img=" + img.get() + ", sx=" + sx.get() + ", sy=" + sy.get() + ", sw=" + sw.get() + ", sh=" + sh.get() + ", dx=" + dx.get() + ", dy=" + dy.get() + ", dw=" + dw.get() + ", dh=" + dh.get() + ", gc=" + gc.get() + '}';
     }
 }
