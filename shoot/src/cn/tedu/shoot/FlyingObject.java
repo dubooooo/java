@@ -1,8 +1,9 @@
 package cn.tedu.shoot;
-import java.util.Random;
-import java.awt.image.BufferedImage;
+
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.Random;
 
 /** 飞行物 */
 public abstract class FlyingObject {
@@ -36,7 +37,7 @@ public abstract class FlyingObject {
 	/** 加载/读取图片 */
 	public static BufferedImage loadImage(String fileName){
 		try{
-			BufferedImage img = ImageIO.read(FlyingObject.class.getResource(fileName));
+			BufferedImage img = ImageIO.read(FlyingObject.class.getResource("img/" + fileName));
 			return img;
 		}catch(Exception e){
 			e.printStackTrace();

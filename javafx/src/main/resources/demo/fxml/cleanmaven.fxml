@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?><?import javafx.scene.layout.*?><?import javafx.scene.shape.Ellipse?><?import javafx.scene.shape.Rectangle?><?import javafx.scene.shape.SVGPath?><?import javafx.scene.text.Text?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.com.javafx.demo.cleanmaven.CleanController">
+    <children>
+        <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="清理maven缓存">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextArea layoutY="50.0" prefHeight="323.0" prefWidth="600.0"/>
+                                <Button fx:id="clean_maven_button" layoutX="531.0" layoutY="14.0" mnemonicParsing="false" onAction="#clean_maven" text="清理"/>
+                                <TextField layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="500.0"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab 2">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <SVGPath content="M40,60 C42,48 44,30 25,32" layoutX="-1.0" layoutY="172.0"/>
+                                <Text layoutX="24.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="552.240234375"/>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="79.0" layoutY="32.0" stroke="BLACK" strokeType="INSIDE" width="200.0"/>
+                                <Ellipse fill="DODGERBLUE" layoutX="423.0" layoutY="90.0" radiusX="100.0" radiusY="38.0" stroke="BLACK" strokeType="INSIDE"/>
+                                <Region layoutX="300.0" layoutY="132.0" prefHeight="200.0" prefWidth="200.0"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

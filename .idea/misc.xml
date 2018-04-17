@@ -6,13 +6,8 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/hibernate/pom.xml" />
-        <option value="$PROJECT_DIR$/spring/pom.xml" />
         <option value="$PROJECT_DIR$/netty/pom.xml" />
-        <option value="$PROJECT_DIR$/jar/pom.xml" />
         <option value="$PROJECT_DIR$/javafx/pom.xml" />
-        <option value="$PROJECT_DIR$/agent/pom.xml" />
-        <option value="$PROJECT_DIR$/html/pom.xml" />
       </list>
     </option>
   </component>

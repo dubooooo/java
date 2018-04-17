@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.scenicview.ScenicView;
 
 /**
  * @author dubooooo@126.com 2018-04-16
@@ -30,5 +31,6 @@ public class Test01 extends Application {
         stage.setScene(scene);
         stage.show();
         Test01.stage = stage;
+        ScenicView.show(scene);
     }
 }
