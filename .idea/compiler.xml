@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="javafx" />
-        <module name="netty" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +22,7 @@
       <module name="jfoenix_test" target="1.8" />
       <module name="netty" target="1.8" />
       <module name="spring" target="1.8" />
+      <module name="springboot-javafx-support" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="EclipseCompilerSettings">

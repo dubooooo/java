@@ -10,7 +10,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix.iml" filepath="$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix.iml" group="jfoenix" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_main.iml" filepath="$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_main.iml" group="jfoenix" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_test.iml" filepath="$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_test.iml" group="jfoenix" />
-      <module fileurl="file://$PROJECT_DIR$/netty/netty.iml" filepath="$PROJECT_DIR$/netty/netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoot/shoot.iml" filepath="$PROJECT_DIR$/shoot/shoot.iml" />
     </modules>
   </component>

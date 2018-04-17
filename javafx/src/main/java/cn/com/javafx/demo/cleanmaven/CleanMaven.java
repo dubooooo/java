@@ -15,6 +15,11 @@ public class CleanMaven extends Application {
     }
 
     @Override
+    public void init() throws Exception {
+        super.init();
+    }
+
+    @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("demo/fxml/cleanmaven.fxml"));
         primaryStage.setScene(new Scene(root));
