@@ -1,23 +1,16 @@
 package cn.com.javafx.common;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+import java.lang.annotation.Inherited;
 
 /**
- * @author dubooooo@126.com 2018-04-17
+ * @author dubooooo@126.com 2018-04-18
  */
-public class Javafx extends Application {
-
-    private static Class<? extends Stage> stageClass;
-
-    public static void launch(Class<? extends Stage> stageClass) {
-        Javafx.stageClass = stageClass;
-        launch(Javafx.class);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        ((Stage) ApplicationContext.me.getBean(stageClass)).show();
-    }
+@Inherited
+@Lazy
+@Component
+public @interface JavaFX {
 
 }
