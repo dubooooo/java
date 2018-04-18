@@ -1,7 +1,7 @@
 package cn.com.javafx.demo.fxml;
 
 import cn.com.javafx.JavafxApplication;
-import cn.com.javafx.demo.stage.StageTest01;
+import cn.com.javafx.demo.stage.Game01;
 import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +29,6 @@ public class Pane01 {
         stage.setScene(scene);
         //stage.show();
         FXMessageDialog fxMessageDialog = new FXMessageDialog();
-        JavafxApplication.applicationContext().getBean(StageTest01.class).hide();
+        JavafxApplication.applicationContext().getBean(Game01.class).hide();
     }
 }
