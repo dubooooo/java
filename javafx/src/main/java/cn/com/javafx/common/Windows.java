@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 public class Windows extends Stage {
 
     final static Logger log = LoggerFactory.getLogger(Windows.class);
+    private double timeInterval;
 
     public <T> T load(String url) {
         try {
@@ -25,12 +26,30 @@ public class Windows extends Stage {
         return null;
     }
 
-    public Timeline timeline(int millis) {
+    public Timeline timeline(int fps) {
+        timeInterval = 1000 / (double) fps;
+        log.info("" + timeInterval);
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(millis), e -> action(e)));
+        timeline.getKeyFrames().add(new KeyFrame(Duration.ONE, e -> fpsControl(e)));
         timeline.play();
         return timeline;
+    }
+
+    public void fpsControl(ActionEvent e) {
+        double startTime = System.currentTimeMillis();
+        action(e);
+        double endTime = System.currentTimeMillis();
+        double time = endTime - startTime - timeInterval;
+        log.info("" + time);
+        if (time < 0) {
+            try {
+                Thread.sleep((long) -time);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
     }
 
     public void action(ActionEvent e) {

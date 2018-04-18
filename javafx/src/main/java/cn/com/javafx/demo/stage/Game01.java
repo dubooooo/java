@@ -85,8 +85,8 @@ public class Game01 extends Windows {
     }
 
     public void backGroundAction() {
-        gc.clearRect(0, 0, width, height);
-        //gc.drawImage(background, 0, 0, background.getWidth(), background.getHeight(), 0, 0, width, height);
+        //gc.clearRect(0, 0, width, height);
+        gc.drawImage(background, 0, 0, background.getWidth(), background.getHeight(), 0, 0, width, height);
     }
 
     public void infoAction() {
@@ -113,6 +113,8 @@ class Character extends Sprite {
 
     public Character(Image img, double sx, double sy, double sw, double sh) {
         super(img, sx, sy, sw, sh);
+        dx().set(300);
+        dy().set(300);
     }
 
     @Override
