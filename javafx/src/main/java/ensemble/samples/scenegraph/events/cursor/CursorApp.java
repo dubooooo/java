@@ -54,7 +54,7 @@ import javafx.stage.Stage;
  * @related /Scenegraph/Events/MouseEvent
  * @related /Scenegraph/Node Properties
  * @related /Graphics 2d/Shapes/Polygon
- * @related /Scenegraph/Stage
+ * @related /Scenegraph/JavaFX
  * @related /Layout/TilePane
  */
 public class CursorApp extends Application {
