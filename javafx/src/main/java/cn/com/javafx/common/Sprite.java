@@ -7,13 +7,21 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 
 import java.util.stream.Stream;
 
 /**
  * @author dubooooo@126.com 2018-04-13
  */
-public abstract class Sprite {
+public class Sprite {
+
+    private enum Direction {
+        Left, Right, Up, Down
+    }
+
+    private Direction direction = Direction.Left;
+    private Direction lastDirection;
 
     private ObjectProperty<Image> img = new SimpleObjectProperty();
     private DoubleProperty sx = new SimpleDoubleProperty(0);
@@ -60,7 +68,26 @@ public abstract class Sprite {
         gc.drawImage(img().get(), sx().get(), sy().get(), sw().get(), sh().get(), dx().get(), dy().get(), dw().get(), dh().get());
     }
 
-    public abstract void update();
+    public void update() {
+    }
+
+    public void keyPressed(KeyEvent e) {
+        System.out.println(e);
+        switch (e.getCode()) {
+            case UP:
+                moveUp();
+                break;
+            case DOWN:
+                moveDown();
+                break;
+        }
+    }
+
+    public void moveUp() {
+    }
+
+    public void moveDown() {
+    }
 
     public void moveTo(double x, double y) {
         dx().set(x);

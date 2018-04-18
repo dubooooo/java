@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import org.springframework.beans.factory.annotation.Value;
@@ -61,13 +62,14 @@ public class Game01 extends Windows {
             mouse_x = e.getX();
             mouse_y = e.getY();
         });
+        scene.setOnKeyPressed(e -> keyPressed(e));
         setResizable(false);
     }
 
     public void initResource() {
         background = new Image("img/background.jpg");
         actor = new Image("img/actor.png");
-        character = new Character(actor, 0, 0, 35, 35);
+        character = new Character(actor, 0, 0, 33, 33);
     }
 
     @Override
@@ -77,13 +79,16 @@ public class Game01 extends Windows {
         infoAction();
     }
 
+    public void keyPressed(KeyEvent e) {
+        character.keyPressed(e);
+    }
+
     public void characterAction() {
-        character.moveTo(mouse_x, mouse_y);
         character.draw(gc);
     }
 
     public void backGroundAction() {
-        gc.clearRect(0, 0, width, height);
+        //gc.clearRect(0, 0, width, height);
         gc.drawImage(background, 0, 0, background.getWidth(), background.getHeight(), 0, 0, width, height);
     }
 
@@ -100,12 +105,34 @@ public class Game01 extends Windows {
 
 class Character extends Sprite {
 
+    private int index;
+    private int speed = 4;
+
     public Character(Image img, double sx, double sy, double sw, double sh) {
         super(img, sx, sy, sw, sh);
     }
 
     @Override
+    public void draw(GraphicsContext gc) {
+        super.draw(gc);
+    }
+
+    @Override
     public void update() {
 
+    }
+
+    @Override
+    public void moveDown() {
+        sy().set(0 * sh().get());
+        sx().set(index++ / speed % 3 * sw().get());
+        dy().set(dy().get() + speed);
+    }
+
+    @Override
+    public void moveUp() {
+        sy().set(3 * sh().get());
+        sx().set(index++ / speed % 3 * sw().get());
+        dy().set(dy().get() - speed);
     }
 }
