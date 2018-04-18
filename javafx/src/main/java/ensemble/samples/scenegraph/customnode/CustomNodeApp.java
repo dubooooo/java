@@ -54,7 +54,7 @@ import javafx.stage.Stage;
  * @related /Scenegraph/Events/Key Stroke Motion
  * @related /Scenegraph/Node Properties
  * @related /Graphics 2d/Shapes/Polygon
- * @related /Scenegraph/Stage
+ * @related /Scenegraph/JavaFX
  * @see javafx.scene.Group
  * @see Parent
  * @see Polygon
