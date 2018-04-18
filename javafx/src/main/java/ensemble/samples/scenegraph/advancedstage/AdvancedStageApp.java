@@ -59,7 +59,7 @@ import javafx.stage.StageStyle;
  * controls to minimize or close it. With a transparent stage, you must add
  * your own event handlers to perform these actions.
  *
- * @sampleName Advanced Stage
+ * @sampleName Advanced JavaFX
  * @preview preview.png
  * @see Color
  * @see RadialGradient
@@ -67,7 +67,7 @@ import javafx.stage.StageStyle;
  *
  * @related /Animation/Interpolator
  * @related /Graphics 2d/Paints/Radial Gradient
- * @related /Scenegraph/Stage
+ * @related /Scenegraph/JavaFX
  */
 public class AdvancedStageApp extends Application {
 
@@ -77,7 +77,7 @@ public class AdvancedStageApp extends Application {
 
     public Parent createContent() {
         // create a button for initializing our new stage
-        Button button = new Button("Create a Stage");
+        Button button = new Button("Create a JavaFX");
         button.setStyle("-fx-font-size: 24;");
         button.setDefaultButton(true);
         button.setOnAction((ActionEvent t) -> {
