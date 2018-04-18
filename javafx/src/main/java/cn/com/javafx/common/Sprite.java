@@ -16,13 +16,6 @@ import java.util.stream.Stream;
  */
 public class Sprite {
 
-    private enum Direction {
-        Left, Right, Up, Down
-    }
-
-    private Direction direction = Direction.Left;
-    private Direction lastDirection;
-
     private ObjectProperty<Image> img = new SimpleObjectProperty();
     private DoubleProperty sx = new SimpleDoubleProperty(0);
     private DoubleProperty sy = new SimpleDoubleProperty(0);
@@ -80,7 +73,19 @@ public class Sprite {
             case DOWN:
                 moveDown();
                 break;
+            case LEFT:
+                moveLeft();
+                break;
+            case RIGHT:
+                moveRight();
+                break;
         }
+    }
+
+    public void moveLeft() {
+    }
+
+    public void moveRight() {
     }
 
     public void moveUp() {
@@ -89,12 +94,12 @@ public class Sprite {
     public void moveDown() {
     }
 
-    public void moveTo(double x, double y) {
+    public void moveToXY(double x, double y) {
         dx().set(x);
         dy().set(y);
     }
 
-    public void move(double x, double y) {
+    public void moveXY(double x, double y) {
         moveX(x);
         moveY(y);
     }
