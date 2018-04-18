@@ -54,7 +54,7 @@ import javafx.stage.Stage;
  * @playground rectC.opacity (name="Rectangle C Opacity", min=0, max=1)
  * @related /Scenegraph/Custom Node
  * @related /Graphics 2d/Shapes/Rectangle
- * @related /Scenegraph/Stage
+ * @related /Scenegraph/JavaFX
  * @see javafx.scene.Node
  * @see Pane
  * @see Color

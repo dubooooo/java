@@ -54,7 +54,7 @@ import javafx.stage.Stage;
  * @see javafx.scene.transform.Rotate
  * @embedded
  *
- * @related /Scenegraph/Advanced Stage
+ * @related /Scenegraph/Advanced JavaFX
  * @related /Graphics 2d/Shapes/Circle
  * @related /Graphics 2d/Effects/Drop Shadow
  * @related /Graphics 2d/Effects/Gaussian Blur

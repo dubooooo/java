@@ -47,14 +47,14 @@ import javafx.stage.Stage;
  * A sample with a control that creates a decorated stage that is centered on
  * your desktop.
  *
- * @sampleName Stage
+ * @sampleName JavaFX
  * @preview preview.png
  * @see Scene
  * @see Button
  * @see Lighting
  * @see Stage
  *
- * @related /Scenegraph/Advanced Stage
+ * @related /Scenegraph/Advanced JavaFX
  * @related /Scenegraph/Custom Node
  * @related /Controls/Button/Graphic Button
  */
@@ -63,7 +63,7 @@ public class StageApp extends Application {
     public Parent createContent() {
 
         //create a button for initializing our new stage
-        Button button = new Button("Create a Stage");
+        Button button = new Button("Create a JavaFX");
         button.setStyle("-fx-font-size: 24;");
         button.setDefaultButton(true);
         button.setOnAction((ActionEvent t) -> {
