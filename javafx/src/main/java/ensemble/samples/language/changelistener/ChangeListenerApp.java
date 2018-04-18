@@ -63,7 +63,7 @@ import javafx.stage.Stage;
  * @see javafx.beans.value.ObservableValue
  * @embedded
  *
- * @related /Scenegraph/Advanced Stage
+ * @related /Scenegraph/Advanced JavaFX
  * @related /Animation/Interpolator
  * @related /Graphics 2d/Stopwatch
  */
