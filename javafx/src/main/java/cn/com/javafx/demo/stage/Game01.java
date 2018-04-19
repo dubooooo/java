@@ -32,8 +32,6 @@ public class Game01 extends Windows {
 
     private double mouse_x;
     private double mouse_y;
-    private double startTime;
-    private double totalFPS;
 
     private Image background;
     private Image actor;
@@ -46,7 +44,7 @@ public class Game01 extends Windows {
     }
 
     public void initStage() {
-        startTime = System.currentTimeMillis();
+
         root = new Pane();
         canvas = new Canvas(width, height);
         root.getChildren().add(canvas);
@@ -55,6 +53,7 @@ public class Game01 extends Windows {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.rgb(255, 255, 255));
         timeline = timeline(10);
+        fpsControl(timeline, 60);
         scene.setOnMouseMoved(e -> {
             mouse_x = e.getX();
             mouse_y = e.getY();
@@ -91,11 +90,6 @@ public class Game01 extends Windows {
 
     public void infoAction() {
         gc.fillText("FPS : " + fps() + " X : " + mouse_x + " Y : " + mouse_y, 0, 20);
-    }
-
-    public double fps() {
-        totalFPS++;
-        return totalFPS / (System.currentTimeMillis() - startTime) * 1000;
     }
 
 }

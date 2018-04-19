@@ -1,6 +1,6 @@
 package cn.com.javafx;
 
-import cn.com.javafx.demo.stage.Game01;
+import cn.com.javafx.demo.stage.Game02;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.springframework.beans.BeansException;
@@ -28,7 +28,7 @@ public class JavafxApplication extends Application implements ApplicationContext
 
     @Override
     public void start(Stage stage) throws Exception {
-        applicationContext().getBean(Game01.class).show();
+        applicationContext().getBean(Game02.class).show();
     }
 
     @Override
