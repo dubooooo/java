@@ -22,7 +22,7 @@ public class JavafxApplication extends Application implements ApplicationContext
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         SpringApplication.run(JavafxApplication.class);
     }
 
@@ -37,6 +37,6 @@ public class JavafxApplication extends Application implements ApplicationContext
     }
 
     public static ApplicationContext applicationContext() throws BeansException {
-        return AC;
+        return JavafxApplication.AC;
     }
 }
