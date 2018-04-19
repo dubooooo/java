@@ -1,7 +1,6 @@
 package cn.com.javafx.demo.stage;
 
 import cn.com.javafx.common.GameFrameWork;
-import cn.com.javafx.common.JavaFX;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -10,13 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-
-import javax.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
 
 /**
  * @author dubooooo@126.com 2018-04-17
  */
-@JavaFX
+@Component
 public class Game02 extends GameFrameWork {
 
     private double width = 600;
@@ -35,7 +33,7 @@ public class Game02 extends GameFrameWork {
     private Image actor;
     private Character character;
 
-    @PostConstruct
+    @Override
     public void init() {
         initStage();
         initResource();
@@ -44,7 +42,7 @@ public class Game02 extends GameFrameWork {
 
     public void start() {
         drawThreadStart(60);
-        updateThreadStart(60);
+        updateThreadStart(60000);
     }
 
     public void initStage() {

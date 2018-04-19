@@ -1,6 +1,5 @@
 package cn.com.javafx.demo.fxml;
 
-import cn.com.javafx.common.JavafxUtil;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

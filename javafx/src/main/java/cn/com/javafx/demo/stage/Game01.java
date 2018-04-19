@@ -1,6 +1,5 @@
 package cn.com.javafx.demo.stage;
 
-import cn.com.javafx.common.JavaFX;
 import cn.com.javafx.common.Sprite;
 import cn.com.javafx.common.Windows;
 import javafx.animation.Timeline;
@@ -18,7 +17,6 @@ import javax.annotation.PostConstruct;
 /**
  * @author dubooooo@126.com 2018-04-17
  */
-@JavaFX
 public class Game01 extends Windows {
 
     private double width = 600;

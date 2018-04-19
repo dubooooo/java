@@ -1,14 +1,13 @@
 package cn.com.javafx.common;
 
 import javafx.application.Platform;
-import javafx.stage.Stage;
 
 import java.text.DecimalFormat;
 
 /**
  * @author dubooooo@126.com 2018-04-19
  */
-public abstract class GameFrameWork extends Stage {
+public abstract class GameFrameWork extends AbstractStage {
 
     private Thread drawThread;
     private Thread updateThread;
