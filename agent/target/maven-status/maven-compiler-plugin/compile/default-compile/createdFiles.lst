@@ -1,0 +1,5 @@
+cn\com\java\agent\Agent.class
+cn\com\java\agent\ClassTransformer.class
+cn\com\java\util\IOUtil.class
+cn\com\java\util\Javassist.class
+cn\com\java\agent\FileIO.class

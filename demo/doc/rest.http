@@ -1,0 +1,8 @@
+GET http://localhost:8080/sales/index.jsp
+
+
+POST http://localhost:8080/sales/index.jsp
+Date: {"username":"123"}
+
+GET http://www.baidu.com?s=string
+

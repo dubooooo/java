@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Eclipse" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -11,21 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="agent" target="1.7" />
-      <module name="demo_main" target="1.8" />
-      <module name="demo_test" target="1.8" />
-      <module name="hibernate" target="1.8" />
-      <module name="html" target="1.8" />
-      <module name="jar" target="1.8" />
       <module name="javafx" target="1.8" />
-      <module name="jfoenix_main" target="1.8" />
-      <module name="jfoenix_test" target="1.8" />
-      <module name="netty" target="1.8" />
-      <module name="spring" target="1.8" />
-      <module name="springboot-javafx-support" target="1.8" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="EclipseCompilerSettings">
-    <option name="GENERATE_NO_WARNINGS" value="true" />
   </component>
 </project>

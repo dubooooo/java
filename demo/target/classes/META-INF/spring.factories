@@ -1,0 +1,6 @@
+# Run Listeners
+# org.springframework.boot.SpringApplicationRunListener=\
+# cn.com.demo.date_20180301.listener.DemoEventPublishingRunListener
+# org.springframework.context.ApplicationListener=\
+# cn.com.demo.date_20180301.listener.DemoApplicationListener
+

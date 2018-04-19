@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
-    <facet type="Python" name="Python">
-      <configuration sdkName="Python 3.6" />
-    </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map>
-          <unit-entry name="hibernate:src:main:resources:hibernate.cfg.xml" />
-          <unit-entry name="hibernate:target:classes:hibernate.cfg.xml" />
-        </datasource-map>
+        <datasource-map />
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/hibernate/src/main/resources/hibernate.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/hibernate/target/classes/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/webpad/war/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/webpad/war" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/servlet/apps/app1/src/meta/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/servlet/apps/app1/src/meta" relative="/WEB-INF" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web3">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/corba/war/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/corba/war" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web4">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/raf/war/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/raf/war" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web5">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/servlet/apps/app2/src/meta/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/servlet/apps/app2/src/meta" relative="/WEB-INF" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web6">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/servlet/apps/app3/src/meta/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/jdk1.8/sample/jnlp/servlet/apps/app3/src/meta" relative="/WEB-INF" />
+        </webroots>
       </configuration>
     </facet>
   </component>
@@ -21,6 +75,5 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.6 interpreter library" level="application" />
   </component>
 </module>

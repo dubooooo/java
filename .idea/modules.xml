@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo.iml" group="demo" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo_main.iml" group="demo" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo_test.iml" group="demo" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/javafx/javafx.iml" filepath="$PROJECT_DIR$/javafx/javafx.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix.iml" filepath="$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix.iml" group="jfoenix" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_main.iml" filepath="$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_main.iml" group="jfoenix" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_test.iml" filepath="$PROJECT_DIR$/.idea/modules/jfoenix/jfoenix_test.iml" group="jfoenix" />
-      <module fileurl="file://$PROJECT_DIR$/shoot/shoot.iml" filepath="$PROJECT_DIR$/shoot/shoot.iml" />
     </modules>
   </component>
 </project>
